@@ -11,46 +11,73 @@ function getComputerChoice () {
     }
 }
 
-function computerSelection () {
-    return getComputerChoice();
-}
-
-/*
-function playerSelection () {
-    let choice = prompt("Rock, Paper, or Scissor");
+//function for player choice
+function getPlayerChoice() {
+    let choice = prompt("Rock, Paper, or Scissor?: ", "")
     choice.toLowerCase;
     if (choice === "rock") {
         return "rock";
     } else if (choice === "paper") {
         return "paper";
-    } else {
+    } else if (choice === "scissor") {
         return "scissor";
+    } else {
+        return "that is not an option";
     }
 } 
-*/
 
+//function for the round to see who wins
 function playRound (playerSelection, computerSelection) {
+    
+   playerSelection = getPlayerChoice();
+   computerSelection = getComputerChoice();
+
     if (playerSelection === "rock" && computerSelection === "rock") {
         console.log("Draw! Rock vs Rock");
+        return "draw";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         console.log("Lose! Rock lose to Paper");
+        return "lose";
     } else if (playerSelection === "rock" && computerSelection === "scissor") {
         console.log("Win! Rock beat Scissor");
+        return "win";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         console.log("Win! Paper beats Rock");
+        return "win";
     } else if (playerSelection === "paper" && computerSelection === "paper") {
         console.log("Draw! Paper vs Paper");
+        return "draw";
     } else if (playerSelection === "paper" && computerSelection === "scissor") {
         console.log("Lose! Paper lose to scissor");
+        return "lose";
     } else if (playerSelection === "scissor" && computerSelection === "rock") {
         console.log("Lose! Scissor lose to Rock");
+        return "lose";
     } else if (playerSelection === "scissor" && computerSelection === "paper") {
         console.log("Win! Scissor beats Paper");
-    } else if (playerSelection === "scissor" && computerSelection === "scissor") {
+        return "win";
+    } else if (playerSelection == "scissor" && computerSelection === "scissor") {
         console.log("Draw! Scissor vs Scissor");
+        return "draw";
     }
 }
 
-const playerSelection = "rock";
-const computerSelction = getComputerChoice();
-console.log(playRound(playerSelection, computerSelction));
+//function for the game of best to 5
+function game () {
+    for (let i = 0; i < 5; i++) {
+        let playerWin = 0;
+        let computerWin = 0;
+        let draw = 0;
+        let player, computer;
+        if (playRound (player, computer) === "win") {
+            playerWin++;
+        } else if (playRound (player, computer) === "lose") {
+            computerWin++;
+        } else {
+            draw++;
+        }
+        return "You have " + playerWin + " wins, " + computerWin + " loses and " + draw + " draw";
+    } 
+}
+
+console.log(game());
