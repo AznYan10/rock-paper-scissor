@@ -13,25 +13,34 @@ function getComputerChoice () {
 }
 
 //function for player choice
-function getPlayerChoice() {
-    let choice = prompt("Rock, Paper, or Scissor?: ", "")
-    choice = choice.toLowerCase();
+function getPlayerChoice(e) {
+    //let choice = prompt("Rock, Paper, or Scissor?: ", "")
+    //choice = choice.toLowerCase();
+
+    let choice = e;
+
     if (choice === "rock") {
         return "rock";
+        console.log(choice);
     } else if (choice === "paper") {
         return "paper";
+        console.log(choice);
     } else if (choice === "scissor") {
         return "scissor";
+        console.log(choice);
     } else {
         return choice + " is not an option";
+        console.log(choice);
     }
 } 
 
 //function for the round to see who wins
 function playRound (playerSelection, computerSelection) {
-   
+
+    let choice = playerSelection.target.id;
+
     //gets player choice and computer choice
-    playerSelection = getPlayerChoice();
+    playerSelection = getPlayerChoice(choice);
     computerSelection = getComputerChoice();
 
     //All the outcomes for the rock, paper, scissor 
@@ -74,26 +83,7 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-//function for the game of best to 5
-function game () {
-    let playerWin = 0;
-    let computerWin = 0;
-    let draw = 0;
-
-    //loops 5 times for the game
-    for (let i = 0; i < 5; i++) {
-        let play = playRound();
-        if (play === "win") {
-            playerWin++;
-        } else if (play === "lose") {
-            computerWin++;
-        } else {
-            draw++;
-        }
-    }
-    alert("You have " + playerWin + " win, " + computerWin + " lose and " + draw + " draw");
-    return "You have " + playerWin + " win, " + computerWin + " lose and " + draw + " draw"; 
-}
-
-//playing the game
-console.log(game());
+const icons = document.querySelectorAll('.icon');
+icons.forEach ((icon) => {
+    icon.addEventListener('click', playRound)
+});
