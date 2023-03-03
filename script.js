@@ -45,45 +45,82 @@ function playRound (playerSelection, computerSelection) {
 
     //All the outcomes for the rock, paper, scissor 
     if (playerSelection === "rock" && computerSelection === "rock") {
-        alert("Draw! Rock vs Rock");
         console.log("Draw! Rock vs Rock");
         return "draw";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        alert("Lose! Rock lose to Paper");
         console.log("Lose! Rock lose to Paper");
         return "lose";
     } else if (playerSelection === "rock" && computerSelection === "scissor") {
-        alert("Win! Rock beat Scissor");
         console.log("Win! Rock beat Scissor");
         return "win";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        alert("Win! Paper beats Rock");
         console.log("Win! Paper beats Rock");
         return "win";
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        alert("Draw! Paper vs Paper");
         console.log("Draw! Paper vs Paper");
         return "draw";
     } else if (playerSelection === "paper" && computerSelection === "scissor") {
-        alert("Lose! Paper lose to scissor");
         console.log("Lose! Paper lose to scissor");
         return "lose";
     } else if (playerSelection === "scissor" && computerSelection === "rock") {
-        alert("Lose! Scissor lose to Rock");
         console.log("Lose! Scissor lose to Rock");
         return "lose";
     } else if (playerSelection === "scissor" && computerSelection === "paper") {
-        alert("Win! Scissor beats Paper");
         console.log("Win! Scissor beats Paper");
         return "win";
     } else if (playerSelection == "scissor" && computerSelection === "scissor") {
-        alert("Draw! Scissor vs Scissor");
         console.log("Draw! Scissor vs Scissor");
         return "draw";
     }
 }
 
+// All necesary elements
+const divResult = document.querySelector('#results');
 const icons = document.querySelectorAll('.icon');
-icons.forEach ((icon) => {
-    icon.addEventListener('click', playRound)
+
+//icons.forEach((icon) => icon.addEventListener('click', playRound));
+
+// Outcomes
+let win = 0;
+let lose = 0;
+let draw = 0;
+
+// icons.forEach((icon) => {
+//     icon.addEventListener('click', function (e) {
+//         playRound(e);
+//     });
+// });
+
+icons.forEach((icon) => {
+    icon.addEventListener('click', function (e) {
+        const play = playRound(e);
+        if (play === 'win') {
+            const result = document.createElement('p');
+            result.textContent = 'Yay! you won';
+            divResult.appendChild(result);
+            win++;
+        } else if (play === 'lose') {
+            result = document.createElement('p');
+            result.textContent = 'Awe! you lost';
+            divResult.appendChild(result);
+            lose++;
+        } else {
+            result = document.createElement('p');
+            result.textContent = 'It\' a draw';
+            divResult.appendChild(result);
+            draw++;
+        }
+        
+        if (win === 5) {
+            alert('Congrats you won 5 times');
+            win = 0;
+            lose = 0;
+            draw = 0;
+        } else if (lose === 5) {
+            alert('Lost 5 times, better luck next time');
+            win = 0;
+            lose = 0;
+            draw = 0;
+        }
+    });
 });
