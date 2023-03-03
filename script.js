@@ -78,53 +78,42 @@ function playRound (playerSelection, computerSelection) {
 const divResult = document.querySelector('#results');
 const icons = document.querySelectorAll('.icon');
 
-//icons.forEach((icon) => icon.addEventListener('click', playRound));
-
 // Outcomes
 let win = 0;
 let lose = 0;
 let draw = 0;
 
-// icons.forEach((icon) => {
-//     icon.addEventListener('click', function (e) {
-//         playRound(e);
-//     });
-// });
-
-icons.forEach((icon) => {
-    icon.addEventListener('click', function (e) {
-        const play = playRound(e);
+function play(e) {
+    const play = playRound(e);
+        const result = document.createElement('p');
         if (play === 'win') {
-            const result = document.createElement('p');
             result.textContent = 'You won';
             divResult.appendChild(result);
             win++;
         } else if (play === 'lose') {
-            const result = document.createElement('p');
             result.textContent = 'You lost';
             divResult.appendChild(result);
             lose++;
         } else {
-            const result = document.createElement('p');
             result.textContent = 'It\' a draw';
             divResult.appendChild(result);
             draw++;
         }
         
+        const endResult = document.createElement('p');
         if (win === 4) {
-            const result = document.createElement('p');
-            result.textContent = 'Congrats! you won 5 times';
-            divResult.appendChild(result);
+            endResult.textContent = 'Congrats! you won 5 times';
+            divResult.appendChild(endResult);
             win = 0;
             lose = 0;
             draw = 0;
         } else if (lose === 4) {
-            const result = document.createElement('p');
-            result.textContent = 'Lost 5 times, better luck next time';
-            divResult.appendChild(result);
+            endResult.textContent = 'Lost 5 times, better luck next time';
+            divResult.appendChild(endResult);
             win = 0;
             lose = 0;
             draw = 0;
         }
-    });
-});
+}
+
+icons.forEach(icon => icon.addEventListener('click', play));
