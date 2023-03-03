@@ -96,28 +96,32 @@ icons.forEach((icon) => {
         const play = playRound(e);
         if (play === 'win') {
             const result = document.createElement('p');
-            result.textContent = 'Yay! you won';
+            result.textContent = 'You won';
             divResult.appendChild(result);
             win++;
         } else if (play === 'lose') {
-            result = document.createElement('p');
-            result.textContent = 'Awe! you lost';
+            const result = document.createElement('p');
+            result.textContent = 'You lost';
             divResult.appendChild(result);
             lose++;
         } else {
-            result = document.createElement('p');
+            const result = document.createElement('p');
             result.textContent = 'It\' a draw';
             divResult.appendChild(result);
             draw++;
         }
         
-        if (win === 5) {
-            alert('Congrats you won 5 times');
+        if (win === 4) {
+            const result = document.createElement('p');
+            result.textContent = 'Congrats! you won 5 times';
+            divResult.appendChild(result);
             win = 0;
             lose = 0;
             draw = 0;
-        } else if (lose === 5) {
-            alert('Lost 5 times, better luck next time');
+        } else if (lose === 4) {
+            const result = document.createElement('p');
+            result.textContent = 'Lost 5 times, better luck next time';
+            divResult.appendChild(result);
             win = 0;
             lose = 0;
             draw = 0;
