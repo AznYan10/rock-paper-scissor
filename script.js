@@ -41,31 +41,40 @@ function playRound (playerSelection, computerSelection) {
 
     // All the outcomes for the rock, paper, scissor 
     if (playerSelection === "rock" && computerSelection === "rock") {
-        console.log("Draw! Rock vs Rock");
+        playerVsComp.textContent = 'Rock and rock smashes together and break';
+        divResult.appendChild(playerVsComp);
         return "draw";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log("Lose! Rock lose to Paper");
+        playerVsComp.textContent = 'Rock gets covered by paper';
+        divResult.appendChild(playerVsComp);
         return "lose";
     } else if (playerSelection === "rock" && computerSelection === "scissor") {
-        console.log("Win! Rock beat Scissor");
+        playerVsComp.textContent = 'Rock smashes through scissor';
+        divResult.appendChild(playerVsComp);
         return "win";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("Win! Paper beats Rock");
+        playerVsComp.textContent = 'Paper covers rock';
+        divResult.appendChild(playerVsComp);
         return "win";
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        console.log("Draw! Paper vs Paper");
+        playerVsComp.textContent = 'Paper covers each other and crumbles';
+        divResult.appendChild(playerVsComp);
         return "draw";
     } else if (playerSelection === "paper" && computerSelection === "scissor") {
-        console.log("Lose! Paper lose to scissor");
+        playerVsComp.textContent = 'Paper was cut by scissor';
+        divResult.appendChild(playerVsComp);
         return "lose";
     } else if (playerSelection === "scissor" && computerSelection === "rock") {
-        console.log("Lose! Scissor lose to Rock");
+        playerVsComp.textContent = 'Scissor was smashed by the rock';
+        divResult.appendChild(playerVsComp);
         return "lose";
     } else if (playerSelection === "scissor" && computerSelection === "paper") {
-        console.log("Win! Scissor beats Paper");
+        playerVsComp.textContent = 'Scissor cut the paper to shreds';
+        divResult.appendChild(playerVsComp);
         return "win";
     } else if (playerSelection == "scissor" && computerSelection === "scissor") {
-        console.log("Draw! Scissor vs Scissor");
+        playerVsComp.textContent = 'Scissor cuts each other in half';
+        divResult.appendChild(playerVsComp);
         return "draw";
     }
 }
@@ -73,6 +82,8 @@ function playRound (playerSelection, computerSelection) {
 // All necessary elements
 const divResult = document.querySelector('#results');
 const icons = document.querySelectorAll('.icon');
+const playerVsComp = document.createElement('p');
+playerVsComp.textContent = '';
 const result = document.createElement('p');
 const endResult = document.createElement('p');
 
@@ -84,6 +95,14 @@ let draw = 0;
 // play function
 function play(e) {
     const play = playRound(e);
+    if ((win === 5) || (lose === 5)) {
+        divResult.removeChild(result);
+        divResult.removeChild(endResult);
+        win = 0;
+        lose = 0;
+        draw = 0;
+    }
+    
     if (play === 'win') {
         result.textContent = 'You won';
         divResult.appendChild(result);
@@ -97,25 +116,12 @@ function play(e) {
         divResult.appendChild(result);
         draw++;
     }
-    if (win === 4) {
+    if (win === 5) {
         endResult.textContent = 'Congrats! you won 5 times';
-        divResult.removeChild(result);
         divResult.appendChild(endResult);
-        console.log(divResult);
-        e.target.add
-        console.log(e.target.class);
-        win = 0;
-        lose = 0;
-        draw = 0;
-    } else if (lose === 4) {
+    } else if (lose === 5) {
         endResult.textContent = 'Lost 5 times, better luck next time';
-        divResult.removeChild(result);
         divResult.appendChild(endResult);
-        console.log(divResult);
-        console.log(e.target.class);
-        win = 0;
-        lose = 0;
-        draw = 0;
     }
 }
 
