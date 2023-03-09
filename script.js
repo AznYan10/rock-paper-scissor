@@ -86,6 +86,7 @@ const playerVsComp = document.createElement('p');
 playerVsComp.textContent = '';
 const result = document.createElement('p');
 const endResult = document.createElement('p');
+const points = document.createElement('p');
 
 // Outcomes
 let win = 0;
@@ -98,6 +99,7 @@ function play(e) {
     if ((win === 5) || (lose === 5)) {
         divResult.removeChild(result);
         divResult.removeChild(endResult);
+        divResult.removeChild(points);
         win = 0;
         lose = 0;
         draw = 0;
@@ -107,14 +109,20 @@ function play(e) {
         result.textContent = 'You won';
         divResult.appendChild(result);
         win++;
+        points.textContent = 'Player: ' + win + ' Computer: ' + lose;
+        divResult.appendChild(points);
     } else if (play === 'lose') {
         result.textContent = 'You lost';
         divResult.appendChild(result);
         lose++;
+        points.textContent = 'Player: ' + win + ' Computer: ' + lose;
+        divResult.appendChild(points);
     } else {
         result.textContent = 'It\' a draw';
         divResult.appendChild(result);
         draw++;
+        points.textContent = 'Player: ' + win + ' Computer: ' + lose;
+        divResult.appendChild(points);
     }
     if (win === 5) {
         endResult.textContent = 'Congrats! you won 5 times';
