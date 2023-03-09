@@ -1,6 +1,4 @@
-html {
-    display: flex;
-    justify-content: center;;
+body {
     width: 100%;
     height: 100%;
 }
@@ -10,10 +8,27 @@ img {
     height: 200px;
 }
 
+.rockpaperscissor {
+    display: flex;
+    justify-content: space-around;
+}
+
 .icons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 200px;
+}
+
+#results {
+    text-align: center;
+    margin-top: 50px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+p {
+    margin-top: 50px;
+    font-size: large;
 }
 
