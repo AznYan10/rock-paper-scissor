@@ -32,3 +32,16 @@ p {
     font-size: large;
 }
 
+.clearResult {
+    display: none;
+}
+
+.endResult {
+     font-size: 50px;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

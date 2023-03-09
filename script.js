@@ -86,6 +86,7 @@ const playerVsComp = document.createElement('p');
 playerVsComp.textContent = '';
 const result = document.createElement('p');
 const endResult = document.createElement('p');
+endResult.classList = 'endResult';
 const points = document.createElement('p');
 
 // Outcomes
@@ -100,6 +101,8 @@ function play(e) {
         divResult.removeChild(result);
         divResult.removeChild(endResult);
         divResult.removeChild(points);
+        playerVsComp.classList = '';
+        result.classList = '';
         win = 0;
         lose = 0;
         draw = 0;
@@ -107,29 +110,53 @@ function play(e) {
     
     if (play === 'win') {
         result.textContent = 'You won';
+        result.style.backgroundColor = '#E3EBFF'
+        result.style.color = 'blue';
+        result.style.padding = '10px 0';
+        result.style.width = '5%';
+        result.style.alignSelf = 'center';
         divResult.appendChild(result);
         win++;
         points.textContent = 'Player: ' + win + ' Computer: ' + lose;
         divResult.appendChild(points);
     } else if (play === 'lose') {
         result.textContent = 'You lost';
+        result.style.backgroundColor = '#FFF0F0'
+        result.style.color = 'red';
+        result.style.padding = '10px 0';
+        result.style.width = '5%';
+        result.style.alignSelf = 'center';
         divResult.appendChild(result);
         lose++;
         points.textContent = 'Player: ' + win + ' Computer: ' + lose;
         divResult.appendChild(points);
     } else {
         result.textContent = 'It\' a draw';
+        result.style.backgroundColor = '#D7D7D7';
+        result.style.color = 'black';
+        result.style.padding = '10px 0';
+        result.style.width = '5%';
+        result.style.alignSelf = 'center';
         divResult.appendChild(result);
         draw++;
         points.textContent = 'Player: ' + win + ' Computer: ' + lose;
         divResult.appendChild(points);
     }
     if (win === 5) {
-        endResult.textContent = 'Congrats! you won 5 times';
+        divResult.appendChild(playerVsComp);
+        result.classList = 'clearResult';
+        endResult.textContent = 'Congrats! you won 5 times!';
         divResult.appendChild(endResult);
+        playerVsComp.classList = 'clearResult';
+        divResult.appendChild(result);
     } else if (lose === 5) {
-        endResult.textContent = 'Lost 5 times, better luck next time';
+        playerVsComp.classList = 'clearResult';
+        divResult.appendChild(playerVsComp);
+        endResult.textContent = 'Lost 5 times, better luck next time!';
+        playerVsComp.classList = 'clearResult';
         divResult.appendChild(endResult);
+        result.classList = 'clearResult';
+        divResult.appendChild(result);
     }
 }
 
