@@ -80,13 +80,16 @@ function playRound (playerSelection, computerSelection) {
 }
 
 // All necessary elements
+const bodyElement = document.querySelector('body');
 const divResult = document.querySelector('#results');
-const icons = document.querySelectorAll('.icon');
+const rockPaperScissorClass = document.querySelector('.rockpaperscissor');
+const icons = document.querySelector('.icons');
+const icon = document.querySelectorAll('.icon');
 const playerVsComp = document.createElement('p');
 playerVsComp.textContent = '';
+playerVsComp.classList = 'playVsComp';
 const result = document.createElement('p');
 const endResult = document.createElement('p');
-endResult.classList = 'endResult';
 const points = document.createElement('p');
 
 // Outcomes
@@ -101,8 +104,9 @@ function play(e) {
         divResult.removeChild(result);
         divResult.removeChild(endResult);
         divResult.removeChild(points);
-        playerVsComp.classList = '';
+        playerVsComp.classList = 'playVsComp';
         result.classList = '';
+        bodyElement.backgroundColor = 'whitesmoke';
         win = 0;
         lose = 0;
         draw = 0;
@@ -113,7 +117,7 @@ function play(e) {
         result.style.backgroundColor = '#E3EBFF'
         result.style.color = 'blue';
         result.style.padding = '10px 0';
-        result.style.width = '5%';
+        result.style.width = '20%';
         result.style.alignSelf = 'center';
         divResult.appendChild(result);
         win++;
@@ -124,7 +128,7 @@ function play(e) {
         result.style.backgroundColor = '#FFF0F0'
         result.style.color = 'red';
         result.style.padding = '10px 0';
-        result.style.width = '5%';
+        result.style.width = '20%';
         result.style.alignSelf = 'center';
         divResult.appendChild(result);
         lose++;
@@ -132,10 +136,11 @@ function play(e) {
         divResult.appendChild(points);
     } else {
         result.textContent = 'It\' a draw';
-        result.style.backgroundColor = '#D7D7D7';
-        result.style.color = 'black';
+        result.style.backgroundColor = '#F3B2FF';
+        result.style.color = 'purple';
         result.style.padding = '10px 0';
-        result.style.width = '5%';
+        result.style.width = '20%';
+        result.classList = '';
         result.style.alignSelf = 'center';
         divResult.appendChild(result);
         draw++;
@@ -143,21 +148,29 @@ function play(e) {
         divResult.appendChild(points);
     }
     if (win === 5) {
-        divResult.appendChild(playerVsComp);
-        result.classList = 'clearResult';
         endResult.textContent = 'Congrats! you won 5 times!';
+        endResult.classList = 'endWin';
         divResult.appendChild(endResult);
-        playerVsComp.classList = 'clearResult';
-        divResult.appendChild(result);
-    } else if (lose === 5) {
         playerVsComp.classList = 'clearResult';
         divResult.appendChild(playerVsComp);
-        endResult.textContent = 'Lost 5 times, better luck next time!';
-        playerVsComp.classList = 'clearResult';
-        divResult.appendChild(endResult);
         result.classList = 'clearResult';
         divResult.appendChild(result);
+        rockPaperScissorClass.style.display = 'none';
+        icons.style.display = 'none';
+        bodyElement.style.backgroundColor = '#E3EBFF';
+        
+    } else if (lose === 5) {
+        endResult.textContent = 'Lost 5 times, better luck next time!';
+        endResult.classList = 'endLose';
+        divResult.appendChild(endResult);
+        playerVsComp.classList = 'clearResult';
+        divResult.appendChild(playerVsComp);
+        result.classList = 'clearResult';
+        divResult.appendChild(result);
+        rockPaperScissorClass.style.display = 'none';
+        icons.style.display = 'none';
+        bodyElement.style.backgroundColor = '#FFF0F0';
     }
 }
 
-icons.forEach(icon => icon.addEventListener('click', play));
+icon.forEach(ic => ic.addEventListener('click', play));
