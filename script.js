@@ -91,6 +91,9 @@ playerVsComp.classList = 'playVsComp';
 const result = document.createElement('p');
 const endResult = document.createElement('p');
 const points = document.createElement('p');
+const playButton = document.createElement('button');
+playButton.textContent = 'Click to play again!';
+playButton.classList = 'playButton';
 
 // Outcomes
 let win = 0;
@@ -100,18 +103,18 @@ let draw = 0;
 // play function
 function play(e) {
     const play = playRound(e);
-    if ((win === 5) || (lose === 5)) {
-        divResult.removeChild(result);
-        divResult.removeChild(endResult);
-        divResult.removeChild(points);
-        playerVsComp.classList = 'playVsComp';
-        result.classList = '';
-        bodyElement.backgroundColor = 'whitesmoke';
-        win = 0;
-        lose = 0;
-        draw = 0;
-    }
-    
+    // if ((win === 5) || (lose === 5)) {
+    //     divResult.removeChild(result);
+    //     divResult.removeChild(endResult);
+    //     divResult.removeChild(points);
+    //     playerVsComp.classList = 'playVsComp';
+    //     result.classList = '';
+    //     bodyElement.backgroundColor = 'whitesmoke';
+    //     win = 0;
+    //     lose = 0;
+    //     draw = 0;
+    // }
+
     if (play === 'win') {
         result.textContent = 'You won';
         result.style.backgroundColor = '#E3EBFF'
@@ -158,6 +161,7 @@ function play(e) {
         rockPaperScissorClass.style.display = 'none';
         icons.style.display = 'none';
         bodyElement.style.backgroundColor = '#E3EBFF';
+        divResult.appendChild(playButton);
         
     } else if (lose === 5) {
         endResult.textContent = 'Lost 5 times, better luck next time!';
@@ -170,7 +174,23 @@ function play(e) {
         rockPaperScissorClass.style.display = 'none';
         icons.style.display = 'none';
         bodyElement.style.backgroundColor = '#FFF0F0';
+        divResult.appendChild(playButton);
     }
 }
 
 icon.forEach(ic => ic.addEventListener('click', play));
+playButton.addEventListener('click', function() {
+    divResult.removeChild(result);
+    divResult.removeChild(endResult);
+    divResult.removeChild(points);
+    divResult.removeChild(playerVsComp);
+    playerVsComp.classList = 'playVsComp';
+    result.classList = '';
+    rockPaperScissorClass.style.display = '';
+    icons.style.display = '';
+    bodyElement.style.backgroundColor = 'whitesmoke';
+    divResult.removeChild(playButton);
+    win = 0;
+    lose = 0;
+    draw = 0;
+});
