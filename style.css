@@ -17,6 +17,8 @@ img {
 .rockpaperscissor {
     display: flex;
     justify-content: space-around;
+    background-color: rgb(50, 50, 50);
+    margin-bottom: 15px;
 }
 
 .icons {
@@ -33,13 +35,6 @@ img {
     align-self: center;
     font-size: x-large;
     transition-duration: 1s;
-}
-
-#results {
-    text-align: center;
-    margin-top: 50px;
-    font-size: x-large;
-    font-weight: bold;
 }
 
 p {
@@ -81,6 +76,14 @@ p {
 }
 
 #results {
+    text-align: center;
+    margin-top: 50px;
+    font-size: x-large;
+    font-weight: bold;
+
+}
+
+#results {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,4 +95,21 @@ p {
 
 #losePoints {
     color: red;
+}
+
+#rockH1 {
+    color: burlywood;
+}
+
+#paperH1 {
+    color: whitesmoke;
+}
+
+#scissorH1 {
+    color: silver;
+}
+
+#instruction {
+    text-align: center;
+    font-size: 30px;
 }
