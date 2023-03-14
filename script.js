@@ -86,6 +86,7 @@ const rockPaperScissorClass = document.querySelector('.rockpaperscissor');
 const icons = document.querySelector('.icons');
 const icon = document.querySelectorAll('.icon');
 const winPoints = document.querySelector('#winPoints');
+const instruction = document.querySelector('#instruction');
 const losePoints = document.querySelector('#losePoints');
 const playerVsComp = document.createElement('p');
 playerVsComp.textContent = '';
@@ -104,6 +105,8 @@ let draw = 0;
 // play function
 function play(e) {
     const play = playRound(e);
+
+    instruction.classList = 'clearResult';
 
     if (play === 'win') {
         result.textContent = 'You won';
