@@ -9,6 +9,11 @@ img {
     height: 200px;
 }
 
+.pointsDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .rockpaperscissor {
     display: flex;
     justify-content: space-around;
@@ -70,8 +75,21 @@ p {
     align-self: center;
 }
 
+.points {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #results {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#winPoints {
+    color: blue;
+}
+
+#losePoints {
+    color: red;
 }

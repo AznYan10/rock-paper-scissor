@@ -85,12 +85,13 @@ const divResult = document.querySelector('#results');
 const rockPaperScissorClass = document.querySelector('.rockpaperscissor');
 const icons = document.querySelector('.icons');
 const icon = document.querySelectorAll('.icon');
+const winPoints = document.querySelector('#winPoints');
+const losePoints = document.querySelector('#losePoints');
 const playerVsComp = document.createElement('p');
 playerVsComp.textContent = '';
 playerVsComp.classList = 'playVsComp';
 const result = document.createElement('p');
 const endResult = document.createElement('p');
-const points = document.createElement('p');
 const playButton = document.createElement('button');
 playButton.textContent = 'Click to play again!';
 playButton.classList = 'playButton';
@@ -103,17 +104,6 @@ let draw = 0;
 // play function
 function play(e) {
     const play = playRound(e);
-    // if ((win === 5) || (lose === 5)) {
-    //     divResult.removeChild(result);
-    //     divResult.removeChild(endResult);
-    //     divResult.removeChild(points);
-    //     playerVsComp.classList = 'playVsComp';
-    //     result.classList = '';
-    //     bodyElement.backgroundColor = 'whitesmoke';
-    //     win = 0;
-    //     lose = 0;
-    //     draw = 0;
-    // }
 
     if (play === 'win') {
         result.textContent = 'You won';
@@ -124,8 +114,8 @@ function play(e) {
         result.style.alignSelf = 'center';
         divResult.appendChild(result);
         win++;
-        points.textContent = 'Player: ' + win + ' Computer: ' + lose;
-        divResult.appendChild(points);
+        winPoints.textContent = 'Player: ' + win;
+        losePoints.textContent = 'Computer: ' + lose;
     } else if (play === 'lose') {
         result.textContent = 'You lost';
         result.style.backgroundColor = '#FFF0F0'
@@ -135,8 +125,8 @@ function play(e) {
         result.style.alignSelf = 'center';
         divResult.appendChild(result);
         lose++;
-        points.textContent = 'Player: ' + win + ' Computer: ' + lose;
-        divResult.appendChild(points);
+        winPoints.textContent = 'Player: ' + win;
+        losePoints.textContent = 'Computer: ' + lose;
     } else {
         result.textContent = 'It\' a draw';
         result.style.backgroundColor = '#F3B2FF';
@@ -147,8 +137,8 @@ function play(e) {
         result.style.alignSelf = 'center';
         divResult.appendChild(result);
         draw++;
-        points.textContent = 'Player: ' + win + ' Computer: ' + lose;
-        divResult.appendChild(points);
+        winPoints.textContent = 'Player: ' + win;
+        losePoints.textContent = 'Computer: ' + lose;
     }
     if (win === 5) {
         endResult.textContent = 'Congrats! you won 5 times!';
@@ -179,10 +169,10 @@ function play(e) {
 }
 
 icon.forEach(ic => ic.addEventListener('click', play));
+
 playButton.addEventListener('click', function() {
     divResult.removeChild(result);
     divResult.removeChild(endResult);
-    divResult.removeChild(points);
     divResult.removeChild(playerVsComp);
     playerVsComp.classList = 'playVsComp';
     result.classList = '';
@@ -193,4 +183,6 @@ playButton.addEventListener('click', function() {
     win = 0;
     lose = 0;
     draw = 0;
+    winPoints.textContent = 'Player: ' + win;
+    losePoints.textContent = 'Computer: ' + lose;
 });
