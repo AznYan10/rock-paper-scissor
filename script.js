@@ -115,6 +115,7 @@ function play(e) {
         result.style.padding = '10px 0';
         result.style.width = '20%';
         result.style.alignSelf = 'center';
+        result.style.margin = '25px 0';
         divResult.appendChild(result);
         win++;
         winPoints.textContent = 'Player: ' + win;
@@ -126,6 +127,7 @@ function play(e) {
         result.style.padding = '10px 0';
         result.style.width = '20%';
         result.style.alignSelf = 'center';
+        result.style.margin = '25px 0';
         divResult.appendChild(result);
         lose++;
         winPoints.textContent = 'Player: ' + win;

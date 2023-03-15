@@ -9,6 +9,11 @@ img {
     height: 200px;
 }
 
+p {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
 .pointsDiv {
     display: flex;
     justify-content: space-evenly;
@@ -18,7 +23,8 @@ img {
     display: flex;
     justify-content: space-around;
     background-color: rgb(50, 50, 50);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 10px solid rgb(100, 100, 100);
 }
 
 .icons {
@@ -33,13 +39,8 @@ img {
     height: 10%;
     border-radius: 10%;
     align-self: center;
-    font-size: x-large;
+    font-size: 25px;
     transition-duration: 1s;
-}
-
-p {
-    margin-top: 50px;
-    font-size: large;
 }
 
 .clearResult {
@@ -48,31 +49,35 @@ p {
 
 .endWin {
     color: blue;
-    font-size: 25px;
+    font-size: 50px;
     padding: 20px 0;
-    width: 40%;
+    width: 80%;
     align-self: center;
 }
 
 .endLose {
     color: red;
-    font-size: 25px;
+    font-size: 50px;
     padding: 20px 0;
-    width: 40%;
+    width: 80%;
     align-self: center;
 }
 
 .playVsComp {
-    background-color: rgb(243, 243, 243);
-    color: #777777;
+    background-color: rgb(100 100 100 / 10%);
+    color: rgb(100, 100, 100);
     padding: 10px 0;
     width: 20%;
     align-self: center;
+    margin: 25px 0;
 }
 
 .points {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 100px;
+    border-top: 1px solid rgb(100, 100, 100);
+    padding: 0;
 }
 
 #results {
@@ -87,6 +92,8 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px 0;
+    color: rgb(100, 100, 100);
 }
 
 #winPoints {
@@ -112,4 +119,5 @@ p {
 #instruction {
     text-align: center;
     font-size: 30px;
+    color: rgb(100, 100, 100);
 }
