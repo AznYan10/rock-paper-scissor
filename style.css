@@ -1,7 +1,19 @@
-body {
-    background-color: whitesmoke;
+header {
+    display: flex;
     width: 100%;
-    height: 100%;
+    margin: 0 8;
+    padding-left: 100px;
+    padding-right: -100px;
+    background-color: rgba(0, 0, 0, 0.767);
+    color: burlywood;
+    border-bottom: 5px solid burlywood;
+}
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('images/background.png');
+    background-color: whitesmoke;
+    background-size: cover;
 }
 
 img {
@@ -14,6 +26,17 @@ p {
     font-size: 25px;
 }
 
+footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.767);
+    color: burlywood;
+    height: 20px;
+    bottom: 0;
+}
+
 .pointsDiv {
     display: flex;
     justify-content: space-evenly;
@@ -21,17 +44,16 @@ p {
 
 .rockpaperscissor {
     display: flex;
-    justify-content: space-around;
-    background-color: rgb(50, 50, 50);
+    justify-content: center;
+    gap: 200px;
     margin-bottom: 10px;
-    border-bottom: 10px solid rgb(100, 100, 100);
 }
 
 .icons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 200px;
+    justify-content: center;
+    gap: 25px;
 }
 
 .playButton {
@@ -76,7 +98,7 @@ p {
     display: flex;
     justify-content: space-evenly;
     margin-top: 100px;
-    border-top: 1px solid rgb(100, 100, 100);
+    border-top: 1px solid burlywood;
     padding: 0;
 }
 
@@ -93,7 +115,7 @@ p {
     flex-direction: column;
     justify-content: center;
     margin: 10px 0;
-    color: rgb(100, 100, 100);
+    color: burlywood;
 }
 
 #winPoints {
@@ -109,15 +131,43 @@ p {
 }
 
 #paperH1 {
-    color: whitesmoke;
+    color: burlywood;
 }
 
 #scissorH1 {
-    color: silver;
+    color:burlywood
+}
+
+#rock {
+    border: 3px solid rgb(124, 70, 0);
+}
+
+#rock:hover {
+    border: 3px solid rgb(0, 255, 191);
+}
+
+#paper {
+    border: 3px solid whitesmoke;
+}
+
+#paper:hover {
+    border: 3px solid rgb(0, 255, 191);
+}
+
+#scissor {
+    border: 3px solid silver;
+}
+
+#scissor:hover {
+    border: 3px solid rgb(0, 255, 191);
 }
 
 #instruction {
     text-align: center;
     font-size: 30px;
-    color: rgb(100, 100, 100);
+    color: burlywood;
+}
+
+#instruction:hover {
+    color: rgb(0, 255, 191)
 }

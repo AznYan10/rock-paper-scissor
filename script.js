@@ -155,6 +155,7 @@ function play(e) {
         divResult.appendChild(result);
         rockPaperScissorClass.style.display = 'none';
         icons.style.display = 'none';
+        bodyElement.style.backgroundImage = 'none';
         bodyElement.style.backgroundColor = '#E3EBFF';
         divResult.appendChild(playButton);
         
@@ -168,6 +169,7 @@ function play(e) {
         divResult.appendChild(result);
         rockPaperScissorClass.style.display = 'none';
         icons.style.display = 'none';
+        bodyElement.style.backgroundImage = 'none';
         bodyElement.style.backgroundColor = '#FFF0F0';
         divResult.appendChild(playButton);
     }
@@ -183,7 +185,7 @@ playButton.addEventListener('click', function() {
     result.classList = '';
     rockPaperScissorClass.style.display = '';
     icons.style.display = '';
-    bodyElement.style.backgroundColor = 'whitesmoke';
+    bodyElement.style.backgroundImage = "url('images/background.png')"
     divResult.removeChild(playButton);
     win = 0;
     lose = 0;
